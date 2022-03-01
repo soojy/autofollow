@@ -59,9 +59,9 @@ const sleep = (delay) => {
     accounts.forEach( (item) => {
         page.goto(item)
 
-        page.waitForSelector('button[data-e2e="data-e2e="follow-button"]')
+        page.waitForSelector('.e143oaad5')
 
-        page.click('button[data-e2e="follow-button"]')
+        page.click('.e143oaad5')
         console.log(page.$(`button[data-e2e="follow-button"]`))
         sleep(10000)
     })
