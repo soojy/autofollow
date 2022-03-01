@@ -121,15 +121,15 @@ const sleep = (delay) => {
     await loadCookies(page)
     console.log('Opening following page')
 
-    accounts.forEach( (item) => {
-        page.goto(item)
+    for (const item of accounts) {
+       await  page.goto(item)
 
-        page.waitForSelector('.e143oaad5')
+        await page.waitForSelector('button[data-e2e="follow-button"]')
 
-        page.click('.e143oaad5')
-        console.log(page.$(`button[data-e2e="follow-button"]`))
+        await page.click('button[data-e2e="follow-button"]')
+        console.log(await page.$(`button[data-e2e="follow-button"]`))
         sleep(10000)
-    })
+    }
     sleep(999999)
     // setTimeout( async () => {await browser.close()},200000)
 })()
